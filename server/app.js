@@ -10,7 +10,17 @@ app.use(bodyParser.json());
 app.use('/routers', userRouter);
 app.use( express.static( 'public' ));
 
+//database
+var mongoURI = "mongodb://localhost:27017/petFavs";
+var MongoDB = mongoose.connect(mongoURI).connection;
 
+MongoDB.on('error', function (err) {
+    console.log('mongodb connection error:', err);
+});
+
+MongoDB.once('open', function () {
+  console.log('mongodb connection open!');
+});
 
 //server
 app.listen('3000', function(){

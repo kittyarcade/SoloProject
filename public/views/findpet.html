@@ -5,11 +5,11 @@
       <option ng-model='dog' value='dog'>Dogs</option>
     </select>
     <input type="text" placeholder='Zipcode' ng-model='zip'>
-    <button type="Submit" ng-click='getPet()'>GET</button>
+    <button type="Submit" ng-click='getPet()'>Find Pet</button>
     <div ng-repeat= 'pet in pets'>
       <img height='300' width='auto' class = '.img-responsive' ng-src="{{pet.media.photos.photo[7].$t}}"/>
           <p><strong>{{pet.name.$t}}</strong>
-          <button type="button" class="btn btn-default btn-sm">
+          <button type="button" ng-click='favorite(pet);' class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-heart"></span> Favorite
           </button></p>
           <p>{{pet.age.$t}}</p>

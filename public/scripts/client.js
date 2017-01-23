@@ -42,6 +42,17 @@ $http({
 clearForms();
 };
 
+//start POST call
+$scope.favorite=function(pet){
+  console.log('faved');
+  $http.post('/routers', pet)
+  .then(function(response){
+    console.log('POST Hit!');
+  });
+}; //end POST
+
+
+//clears input fields after submit
 var clearForms = function(){
   $scope.petType='';
   $scope.zip='';
