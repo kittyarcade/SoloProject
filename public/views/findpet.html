@@ -1,0 +1,20 @@
+<section class='container-fluid'>
+  <h1>Find a Pet</h1>
+    <select ng-model='petType'>
+      <option ng-model='cat' value='cat'>Cats</option>
+      <option ng-model='dog' value='dog'>Dogs</option>
+    </select>
+    <input type="text" placeholder='Zipcode' ng-model='zip'>
+    <button type="Submit" ng-click='getPet()'>GET</button>
+    <div ng-repeat= 'pet in pets'>
+      <img height='300' width='auto' class = '.img-responsive' ng-src="{{pet.media.photos.photo[7].$t}}"/>
+          <p><strong>{{pet.name.$t}}</strong>
+          <button type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-heart"></span> Favorite
+          </button></p>
+          <p>{{pet.age.$t}}</p>
+          <p>{{pet.sex.$t}}</p>
+          <p>{{pet.description.$t}}</p>
+          <p>Contact: {{pet.contact.email.$t}}</p>
+    </div>
+</section>
