@@ -60,4 +60,17 @@ myApp.controller('PetController', ['$scope', '$http', function($scope, $http){
 
 myApp.controller('ProfileController', ['$scope', '$http', function($scope, $http){
   console.log('Profile Controller');
+
+  //GET call to display favorites
+  $scope.display=function(){
+    console.log('GET');
+      $http({
+        method:'GET',
+        url: '/routers'
+      }).then(function(response){
+        console.log('GET Response', response.data);
+        $scope.favorites = response.data;
+      });
+  }; //end GET
+
 }]);

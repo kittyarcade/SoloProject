@@ -1,6 +1,13 @@
-<section class='container-fluid'>
+<section ng-init='display()' class='container-fluid'>
   <h1>User Profile</h1>
 
   <h3>Favorites</h3>
-    <div class='ng-repeat'></div>
+    <div ng-repeat='pet in favorites'>
+      <img height='300' width='auto' class = '.img-responsive' ng-src="{{pet.Image}}"/>
+          <p><strong>{{pet.Name}}</strong></p>
+          <p>{{pet.Age}}</p>
+          <p>Sex: {{pet.Sex}}</p>
+          <p>{{pet.Description}}</p>
+          <p>Contact: {{pet.Contact}}</p>
+        </div>
 </section>

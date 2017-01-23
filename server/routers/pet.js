@@ -24,7 +24,18 @@ router.post('/', function(req,res){
     });
 }); //end post
 
-
+router.get('/', function(req,res){
+  console.log('GET route hit');
+  User.find({}, function(err, result){
+    if(err){
+      console.log('GET Broke');
+      res.sendStatus(500);
+    } else {
+      console.log('GET Sent');
+      res.send(result);
+    }
+  });
+});//end GET
 
 
 
