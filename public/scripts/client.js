@@ -32,32 +32,30 @@ myApp.controller('PetController', ['$scope', '$http', function($scope, $http){
   //get call to Petfinder
   $scope.getPet=function(){
   var url = 'http://api.petfinder.com/pet.find?animal='+$scope.petType+ "&location="+$scope.zip+"&format=json&key=" + mykey;
-$http({
+  $http({
   method: 'GET',
   url: url,
 }).then(function(response){
-  console.log('GET', response);
-  $scope.pets = response.data.petfinder.pets.pet;
-});
-clearForms();
-};
+    console.log('GET', response);
+    $scope.pets = response.data.petfinder.pets.pet;
+    });
+    clearForms();
+  };
 
-//start POST call
-$scope.favorite=function(pet){
-  console.log('faved');
-  $http.post('/routers', pet)
-  .then(function(response){
-    console.log('POST Hit!');
-  });
-}; //end POST
+  //start POST call
+  $scope.favorite=function(pet){
+    console.log('faved');
+    $http.post('/routers', pet)
+    .then(function(response){
+      console.log('POST Hit!');
+    });
+  }; //end POST
 
-
-//clears input fields after submit
-var clearForms = function(){
-  $scope.petType='';
-  $scope.zip='';
-};
-
+  //clears input fields after submit
+  var clearForms = function(){
+    $scope.petType='';
+    $scope.zip='';
+  };
 }]);//end PetController
 
 myApp.controller('ProfileController', ['$scope', '$http', function($scope, $http){
