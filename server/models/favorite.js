@@ -8,7 +8,8 @@ var userSchema = new Schema({
   Age: String,
   Image: String,
   Description: String,
-  Contact: String
+  Contact: String,
+  Username: String
 }); //end userSchema
 
 var User = mongoose.model('favorite', userSchema);

@@ -14,17 +14,71 @@ myApp.config(['$routeProvider', function($routeProvider){
     templateUrl: 'views/profile.html',
     controller: 'ProfileController'
   })
+  .when('/register', {
+    templateUrl: 'views/register.html',
+    controller: 'registerController'
+  })
   .otherwise({
     redirectTo: 'login'
   });
 }]); //end routeProvider
 
-myApp.controller('LoginController',['$scope', '$http', function($scope, $http){
+myApp.controller('LoginController',['$scope', '$http', '$window', function($scope, $http, $window){
   console.log('Login Controller');
+  $scope.login = function(){
+
+   var userInfo = {
+     username: $scope.username,
+     password: $scope.password
+   };
+
+   $http({
+     method: 'POST',
+     url: '/auth',
+     data: userInfo
+   }).then(function successCallback(response) {
+     console.log(response);
+     $window.location.href = '#!/findpet';
+   }, function errorCallback(error) {
+     console.log('error', error);
+     $window.location.href = '#!/login';
+   });
+ };
 }]); //end LoginController
 
-myApp.controller('PetController', ['$scope', '$http', function($scope, $http){
+myApp.controller('registerController',['$scope', '$http', '$window',
+  function($scope, $http, $window) {
+  console.log('inside register controller');
+  $scope.register = function() {
+    var userInfo = {
+      username: $scope.username,
+      password: $scope.password
+    };
+    $http({
+      method: 'POST',
+      url: '/register',
+      data: userInfo
+    }).then(function successCallback(response) {
+      console.log('success', response);
+      $window.location.href = '#!/login';
+    }, function errorCallback(error) {
+      console.log('error occurred!');
+    });
+  };
+}]); //end registerController
+
+myApp.controller('PetController', ['$scope', '$http', '$window', function($scope, $http, $window){
   console.log('Pet Controller');
+
+  $scope.checkLogin = function(){
+    $http.get('/auth')
+      .then(function successCallback(response) {
+        console.log('success', response);
+      }, function errorCallback(error) {
+        console.log('error occurred!');
+        $window.location.href = '#!/login';
+      });
+  };$scope.checkLogin();
 
   var mykey = config.MY_KEY;
   var secretkey = config.SECRET_KEY;
@@ -58,15 +112,23 @@ myApp.controller('PetController', ['$scope', '$http', function($scope, $http){
   };
 }]);//end PetController
 
-myApp.controller('ProfileController', ['$scope', '$http', function($scope, $http){
+myApp.controller('ProfileController', ['$scope', '$http', '$window', function($scope, $http, $window){
   console.log('Profile Controller');
-
+  $scope.checkLogin = function(){
+    $http.get('/auth')
+      .then(function successCallback(response) {
+        console.log('success', response);
+      }, function errorCallback(error) {
+        console.log('error occurred!');
+        $window.location.href = '#!/login';
+      });
+  };$scope.checkLogin();
   //GET call to display favorites
   $scope.display = function(){
     console.log('GET');
       $http({
         method:'GET',
-        url: '/routers'
+        url: '/routers',
       }).then(function(response){
         console.log('GET Response', response.data);
         $scope.favorites = response.data;

@@ -12,7 +12,8 @@ router.post('/', function(req,res){
       Age: info.age.$t,
       Image: info.media.photos.photo[7].$t,
       Description: info.description.$t,
-      Contact: info.contact.email.$t
+      Contact: info.contact.email.$t,
+      Username: req.user.username
     });
     postFav.save(function(err){
       if(err){
@@ -26,7 +27,7 @@ router.post('/', function(req,res){
 
 router.get('/', function(req,res){
   console.log('GET route hit');
-  User.find({}, function(err, result){
+  User.find({Username: req.user.username}, function(err, result){
     if(err){
       console.log('GET Broke');
       res.sendStatus(500);
@@ -40,7 +41,7 @@ router.get('/', function(req,res){
 //delete favorites
 router.delete('/:id', function(req,res){
   console.log('Delete hit ', req.params.id);
-  User.remove({_id: req.params.id}, function(err){
+  User.remove({_id: req.params.id, Username: req.user.username}, function(err){
     if(err){
       console.log(err);
       res.sendStatus(500);
