@@ -62,7 +62,7 @@ myApp.controller('ProfileController', ['$scope', '$http', function($scope, $http
   console.log('Profile Controller');
 
   //GET call to display favorites
-  $scope.display=function(){
+  $scope.display = function(){
     console.log('GET');
       $http({
         method:'GET',
@@ -72,5 +72,16 @@ myApp.controller('ProfileController', ['$scope', '$http', function($scope, $http
         $scope.favorites = response.data;
       });
   }; //end GET
+
+  //Delete favorites
+  $scope.deleteFav = function(petId){
+  $http({
+    method: 'DELETE',
+    url: '/routers/' + petId
+  }).then(function(response){
+    console.log('Delete success: ', response);
+    $scope.display();
+  });
+};
 
 }]);

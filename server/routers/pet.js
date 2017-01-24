@@ -37,6 +37,18 @@ router.get('/', function(req,res){
   });
 });//end GET
 
+//delete favorites
+router.delete('/:id', function(req,res){
+  console.log('Delete hit ', req.params.id);
+  User.remove({_id: req.params.id}, function(err){
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    } else{
+      res.send('deleted!');
+    }
+  });
+});
 
 
 module.exports = router;

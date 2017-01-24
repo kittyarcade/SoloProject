@@ -4,7 +4,8 @@
   <h3>Favorites</h3>
     <div ng-repeat='pet in favorites'>
       <img height='300' width='auto' class = '.img-responsive' ng-src="{{pet.Image}}"/>
-          <p><strong>{{pet.Name}}</strong></p>
+          <p><strong>{{pet.Name}}</strong>
+          <button ng-click='deleteFav(pet._id)'>Remove</button></p>
           <p>{{pet.Age}}</p>
           <p>Sex: {{pet.Sex}}</p>
           <p>{{pet.Description}}</p>
