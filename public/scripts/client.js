@@ -70,6 +70,14 @@ myApp.controller('registerController',['$scope', '$http', '$window',
 myApp.controller('PetController', ['$scope', '$http', '$window', function($scope, $http, $window){
   console.log('Pet Controller');
 
+  $scope.goPet = false;
+
+  $scope.toggleBolean = function(variable){
+    console.log('variable: ', variable);
+    variable = !variable;
+    console.log($scope.goPet, variable);
+  };// end toggleBolean()
+
   $scope.checkLogin = function(){
     $http.get('/auth')
       .then(function successCallback(response) {

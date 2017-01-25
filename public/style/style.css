@@ -1,3 +1,23 @@
 body{
   font-family: sans-serif;
 }
+
+img {
+  margin: 5px;
+}
+
+.petDis {
+  width: 400px;
+  height: auto;
+  margin: 20px;
+  padding: 30px;
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  border: 2px;
+  display: inline-block;
+}
+
+.findPet {
+
+}

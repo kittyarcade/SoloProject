@@ -1,4 +1,5 @@
 <section class='container-fluid'>
+<div class='findPet'>
   <h1>Find a Pet</h1>
     <select ng-model='petType'>
       <option ng-model='cat' value='cat'>Cats</option>
@@ -6,15 +7,19 @@
     </select>
     <input type="text" placeholder='Zipcode' ng-model='zip'>
     <button type="Submit" ng-click='getPet()'>Find Pet</button>
-    <div ng-repeat= 'pet in pets'>
-      <img height='300' width='auto' class = '.img-responsive' ng-src="{{pet.media.photos.photo[7].$t}}"/>
+  </div>
+    <div class='petDis' ng-repeat= 'pet in pets'>
+      <img height='auto' width='300' class = '.img-responsive' ng-src="{{pet.media.photos.photo[7].$t}}"/>
           <p><strong>{{pet.name.$t}}</strong>
           <button type="button" ng-click='favorite(pet);' class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-heart"></span> Favorite
           </button></p>
           <p>{{pet.age.$t}}</p>
-          <p>{{pet.sex.$t}}</p>
-          <p>{{pet.description.$t}}</p>
+          <p>Sex: {{pet.sex.$t}}</p>
           <p>Contact: {{pet.contact.email.$t}}</p>
+          <div>
+          <div ng-click='goPet = !goPet'  class="btn btn-default btn-sm">See More</div>
+          <p ng-show='goPet'>{{pet.description.$t}}</p>
+        </div>
     </div>
 </section>
