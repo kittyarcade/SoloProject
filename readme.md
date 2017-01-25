@@ -1,7 +1,7 @@
 #Furever
 
 ###What is Furever?
-Furever is a full-stack web application that allows users to find adoptable pets in their area.
+Furever is a full-stack web application that allows users to find adoptable pets (cats & dogs) in their area.
 
 ###Technologies Used:
 * MEAN Stack (MongoDB, Express, Angular, Node)
@@ -9,5 +9,5 @@ Furever is a full-stack web application that allows users to find adoptable pets
 * HTML5/CSS3
 * Bootstrap
 * Petfinder API
-* Passport (Google Auth)
+* Passport
 * Mongoose
