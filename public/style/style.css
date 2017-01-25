@@ -6,6 +6,10 @@ img {
   margin: 5px;
 }
 
+nav {
+  background-color: rgb(171, 216, 236);
+}
+
 .petDis {
   width: 400px;
   height: auto;
@@ -19,5 +23,16 @@ img {
 }
 
 .findPet {
+  text-align: center;
+}
 
+header {
+  background-color: rgb(171, 216, 236);
+}
+
+header h1 {
+  font-size: 60px;
+  margin-left: 25px;
+  padding: 10px;
+  color: white;
 }
