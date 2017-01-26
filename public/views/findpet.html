@@ -1,12 +1,13 @@
 <section class='container-fluid'>
 <div class='findPet'>
   <h1>Find a Pet</h1>
-    <select ng-model='petType'>
+    <select name='Animal Type' ng-model='petType' ng-init="petType = 'select'">
+      <option value='select' ng-model='select' disabled>Select animal type:</option>
       <option ng-model='cat' value='cat'>Cats</option>
       <option ng-model='dog' value='dog'>Dogs</option>
     </select>
     <input type="text" placeholder='Zipcode' ng-model='zip'>
-    <button type="Submit" ng-click='getPet()'>Find Pet</button>
+    <button class ='btn btn-info btn-sm' type="Submit" ng-click='getPet()'>Search</button>
   </div>
     <div class='petDis' ng-repeat= 'pet in pets'>
       <img height='auto' width='300' class = '.img-responsive' ng-src="{{pet.media.photos.photo[7].$t}}"/>

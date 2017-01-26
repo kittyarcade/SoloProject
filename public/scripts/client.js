@@ -115,7 +115,7 @@ myApp.controller('PetController', ['$scope', '$http', '$window', function($scope
 
   //clears input fields after submit
   var clearForms = function(){
-    $scope.petType='';
+    $scope.petType='select';
     $scope.zip='';
   };
 }]);//end PetController

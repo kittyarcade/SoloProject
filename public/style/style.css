@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Furever';
+    src: url('Sweet Sensations Personal Use.ttf');
+}
+
 body{
   font-family: sans-serif;
 }
@@ -8,6 +13,7 @@ img {
 
 nav {
   background-color: rgb(171, 216, 236);
+  font-size: 20px;
 }
 
 .petDis {
@@ -31,8 +37,16 @@ header {
 }
 
 header h1 {
-  font-size: 60px;
+  font-family: 'Furever';
+  font-size: 100px;
   margin-left: 25px;
-  padding: 10px;
-  color: white;
+  padding-top: 20px;
+  color: black;
+  text-align: center;
+}
+
+header h4 {
+  text-align: center;
+  font-weight: lighter;
+  font-style: italic;
 }
