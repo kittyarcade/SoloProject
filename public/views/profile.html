@@ -1,14 +1,14 @@
 <section ng-init='display()' class='container-fluid'>
-  <h1>User Profile</h1>
-
-  <h3>Favorites</h3>
-    <div ng-repeat='pet in favorites'>
-      <img height='300' width='auto' class = '.img-responsive' ng-src="{{pet.Image}}"/>
+  <h1>Favorites</h1>
+  <!-- <h3>Favorites</h3> -->
+    <div class = 'petDis' ng-repeat='pet in favorites'>
+      <img height='auto' width='300px' class = '.img-responsive' ng-src="{{pet.Image}}"/>
           <p><strong>{{pet.Name}}</strong>
-          <button ng-click='deleteFav(pet._id)'>Remove</button></p>
           <p>{{pet.Age}}</p>
           <p>Sex: {{pet.Sex}}</p>
-          <p>{{pet.Description}}</p>
           <p>Contact: {{pet.Contact}}</p>
+          <div ng-click='goPet = !goPet'  class="btn btn-default btn-sm">See More</div>
+          <p ng-show = 'goPet'>{{pet.Description}}</p>
+          <button class='btn btn-danger btn-sm' ng-click='deleteFav(pet._id)'>Remove</button></p>
         </div>
 </section>

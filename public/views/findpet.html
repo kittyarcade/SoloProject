@@ -10,7 +10,7 @@
     <button class ='btn btn-info btn-sm' type="Submit" ng-click='getPet()'>Search</button>
   </div>
     <div class='petDis' ng-repeat= 'pet in pets'>
-      <img height='auto' width='300' class = '.img-responsive' ng-src="{{pet.media.photos.photo[7].$t}}"/>
+      <img height='auto' width='300px' class = '.img-responsive' ng-src="{{pet.media.photos.photo[7].$t}}"/>
           <p><strong>{{pet.name.$t}}</strong>
           <button type="button" ng-click='favorite(pet);' class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-heart"></span> Favorite
