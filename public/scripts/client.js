@@ -110,6 +110,7 @@ myApp.controller('PetController', ['$scope', '$http', '$window', function($scope
     $http.post('/routers', pet)
     .then(function(response){
       console.log('POST Hit!');
+      swal("Awesome!", "Added to favorites!", "success");
     });
   }; //end POST
 
