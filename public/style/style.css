@@ -16,6 +16,16 @@ nav {
   font-size: 20px;
 }
 
+.favs {
+  background-color: rgba(0,0,0,0);
+  border: 0px;
+  }
+
+.favs img {
+  height: 20px;
+  width: auto;
+}
+
 .petDis {
   width: 400px;
   height: auto;
@@ -30,6 +40,10 @@ nav {
 
 .findPet {
   text-align: center;
+}
+
+.favs {
+
 }
 
 header {

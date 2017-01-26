@@ -12,9 +12,8 @@
     <div class='petDis' ng-repeat= 'pet in pets'>
       <img height='auto' width='300px' class = '.img-responsive' ng-src="{{pet.media.photos.photo[7].$t}}"/>
           <p><strong>{{pet.name.$t}}</strong>
-          <button type="button" ng-click='favorite(pet);' class="btn btn-default btn-sm">
-            <span class="glyphicon glyphicon-heart"></span> Favorite
-          </button></p>
+          <button type="button" ng-click='favorite(pet);' class="favs"><img src='assets/favourite-heart-icon.png'/>
+        </button></p>
           <p>{{pet.age.$t}}</p>
           <p>Sex: {{pet.sex.$t}}</p>
           <p>Contact: {{pet.contact.email.$t}}</p>
